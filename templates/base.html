@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
     <title>MyGigScene Booking Application</title>
 </head>
 <body>
     <header>
         <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <img src="static/images/mgs_thumbnail.jpg" width="100px" height="60px">
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn-small">Artists</a></li>
+                    <li><a class="waves-effect waves-light btn-small">Venues</a></li>
+                    <li><a class="waves-effect waves-light btn-small">About Us</a></li>
+                    <li><a class="waves-effect waves-light btn-small">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
+    <div class="row">
+        <h2>Page Name</h2>
+        {% block page_header %} {% end block %}
+    </div>
+    <div class="row">
+        <div col-md-3>
+            <h3>Filter Selector</h3>
+            {% block side_selector %} {% end block %}
+        </div>
+        <div col-md-9>
+            <p3>Main Section</p3>
+            {% block main_section %} {% end block %}
+        </div>
+    </div>
+    <footer class="row">
     
+    </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
     
 </body>
 </html>
