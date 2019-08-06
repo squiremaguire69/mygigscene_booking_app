@@ -2,7 +2,25 @@ div {
     border: solid 2px green;
 }
 
+.brand-logo img {
+    height: 80px;
+    width: 80px;
+    margin: 10px 20px;
+    padding: 10px;
+}
+
 .card {
     max-height: 600px;
     max-width: 100px;
+}
+
+.page_header {
+    background-image: url("https://busestoconcerts.com/wp-content/uploads/2019/01/Concert-Hands-up.jpg");
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.page_title {
+    top: 0;
+    left: 50%;
 }
