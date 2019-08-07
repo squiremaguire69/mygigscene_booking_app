@@ -8,7 +8,7 @@
                     
 {% block filter %}
 <ul>
-    <li class="btn small">Town</li><br>
+    <li class="btn small">Date</li><br>
     <li class="btn small">Town</li><br>
     <li class="btn small">Venue</li><br>
     <li class="btn small">Artists</li><br>
@@ -19,29 +19,24 @@
 {% block content %}
 <h3>Upcoming Gigs</h3>
 {% for gigs in gig_listing %}
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="https://scontent-dub4-1.xx.fbcdn.net/v/t1.0-0/p200x200/14237749_284221815294194_7703298429456310364_n.jpg?_nc_cat=106&_nc_oc=AQmwMCsvPLE9WLLw6eMbJkrJ4L7Bc4_JrS0ik6hTW_ueMMdUHYzrs02mSAsncL0MuO4&_nc_ht=scontent-dub4-1.xx&oh=fe012a15cfb541dd3ce3966ebdb734b9&oe=5DDEECA6">
-                    <span class="card-title">DATE & VENUE</span>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        <li>Date:</li>
-                        <li>Artist:</li>
-                        <li>Venue:</li>
-                        <li>Genre:</li>
-                        <li>Info:</li>
-                    </ul>
-                </div>
-                <div class="card-action">
-                    <a href="#" class="btn small"> Band Page</a>
-                    <a href="#" class="btn small">Venue Page</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--<div class="row">-->
+    <!--    <div class="listing_image col-2">-->
+    <!--        <img src="{{'venue.profile_image'}}"></img> <!--venue image-->-->
+    <!--    </div>-->
+    <!--    <div class="listing_info col-4">-->
+    <!--        <p>Date:</p><br>-->
+    <!--        <p>Town:</p><br>-->
+    <!--        <p>Venue:</p>-->
+    <!--    </div>-->
+    <!--    <div class="listing_image col-2">-->
+    <!--        <img src="{{'artist.profile_image' }}"></img> <!--band image-->-->
+    <!--    </div>-->
+    <!--    <div class="listing_info col-4">-->
+    <!--        <p>Band:</p><br>-->
+    <!--        <p>Genre:</p><br>-->
+    <!--        <p>Time:</p>-->
+    <!--    </div>-->
+    <!--</div>-->
 {% endfor %}
     
     

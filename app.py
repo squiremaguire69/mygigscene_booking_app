@@ -13,7 +13,23 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/gig_listing')
 def gig_listing():
-    return render_template('gig_listing.html')
+    return render_template('gig_listing.html', gig=mongo.db.gig_listing.find())
+    
+@app.route('/artists')
+def artist_list():
+    return render_template('artists.html', artist=mongo.db.artist.find())
+    
+@app.route('/venues')
+def venue_list():
+    return render_template('venues.html', venue=mongo.db.venue.find())
+    
+@app.route('/about_us')
+def about_us():
+    return render_template('about_us')
+    
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
