@@ -7,21 +7,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="static/css/style.css" type="text/css">
+    <!--<link rel="stylesheet" href="static/css/style.css" type="text/css">-->
     <title>MyGigScene Booking Application</title>
 </head>
 <body>
-    <header>
+     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('gig_listing') }}" class="brand-logo">
-                    <img src="{{url_for('static', filename='images/mgs-thumbnail.jpg') }}">
-                </a>
+                <a href="{{url_for('gig_listing') }}" class="brand-logo">MyGigScene </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('artist_list') }} class="waves-effect waves-light btn-small">Artists</a></li>
-                    <!--<li><a href="{{ url_for('venue_list') }} class="waves-effect waves-light btn-small">Venues</a></li>-->
-                    <!--<li><a href="{{ url_for('about_us') }} class="waves-effect waves-light btn-small">About Us</a></li>-->
-                    <!--<li><a href="{{ url_for('contact') }} class="waves-effect waves-light btn-small">Contact</a></li>-->
+                    <li><a href="{{ url_for('get_artists') }}" class="waves-effect waves-light btn-small">Artists</a></li>
+                    <li><a href="{{ url_for('get_venues') }}" class="waves-effect waves-light btn-small">Venues</a></li>
+                    <li><a href="{{ url_for('contact_us') }}" class="waves-effect waves-light btn-small">Contact</a></li>
+                    <li><a href="{{ url_for('about_us') }}" class="waves-effect waves-light btn-small">About</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,7 +35,7 @@
     </div>
 </main>
     <footer class="page-footer">
-          <!--<div class="container">-->
+          <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">MyGigScene</h5>
@@ -53,7 +51,7 @@
                 </ul>
               </div>
             </div>
-          <!--</div>-->
+          </div>
           <div class="footer-copyright">
             <div class="container">
             © 2019 Copyright MyGigScene
@@ -63,6 +61,12 @@
         </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
-    
+<!--<script type="text/javascript" src="{{url_for('static', filename='js/myscript.js')}}"></script>>      -->
+<script type="text/javascript">
+        $(document).ready(function() {
+            $('.collapsible').collapsible();
+            $('select').material_select();
+        });
+    </script>
 </body>
 </html>

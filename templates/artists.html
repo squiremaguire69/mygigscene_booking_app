@@ -10,19 +10,30 @@
 {% endblock %}
                     
 {% block filter %}
-<ul>
-    <li class="btn small">Price Range</li><br>
-    <li class="btn small">Genre</li><br>
-</ul>
+<form action="{{ url_for('select_budget') }}" method="POST" class="col s12">
+    <div class="input-field col s12">
+        <select id="price_range" name="price_range">
+              <option value="" disabled selected>Choose your option</option>
+              {% for budget in budget_range %}
+              <option value="{{budget.price_range}}">{{budget.price_range}}</option>
+              {% endfor %}
+        </select>
+        <label>Price Range</label>
+    </div>
+</form>
+<!--<ul>-->
+<!--    <li class="btn small">Price Range</li><br>-->
+<!--    <li class="btn small">Genre</li><br>-->
+<!--</ul>-->
 {% endblock %}
                         
 {% block content %}
 <h3>Active Artists</h3>
     
-{% for artist in artists %}
+
     <div class="row">
-        
-            <div class="card">
+     {% for artist in artists %}   
+            <div class="card col-md-4 mx-2">
                 <div class="card-image">
                     <img src="{{artist.profile_image}}">
                     <span class="card-title">{{ artist.artist_name }}</span>
@@ -37,16 +48,25 @@
                         <li>Price Range: {{ artist.budget_range }}</li>
                     </ul>
                 </div>
-                <div class="card-action">
+                <div class="row">
+                    <div class="card-action">
                     <a href="#" class="btn small"> Edit</a>
-                    <a href="#" class="btn small">Deactivate</a>
+                    </div>
+                    <div>
+                    <a href="#" class="btn small">Delete</a>
+                    </div>
                 </div>
             </div>
         
-    </div>
+    
 {% endfor %}
-
+</div>
     
     
 
 {% endblock %}
+<script>
+    $(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>

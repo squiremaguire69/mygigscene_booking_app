@@ -21,15 +21,7 @@ def get_artists():
     
 @app.route('/add_artist')
 def add_artist():
-    return render_template('add_artist.html', 
-    price_range=mongo.db.budget.find(),
-    genre=mongo.db.genre.find())
-    
-@app.route('/insert_artist', methods=['POST'])
-def insert_artist():
-    artists=mongo.db.artist
-    artists.insert_one(request.form.to_dict())
-    return redirect(url_for('get_artists'))
+    return render_template('add_artist.html')
     
 @app.route('/get_venues')
 def get_venues():
