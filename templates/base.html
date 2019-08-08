@@ -14,14 +14,12 @@
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="{{url_for('gig_listing') }}" class="brand-logo">
-                    <img src="{{url_for('static', filename='images/mgs-thumbnail.jpg') }}">
-                </a>
+                <a href="{{url_for('gig_listing') }}" class="brand-logo">MyGigScene </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('artist_list') }} class="waves-effect waves-light btn-small">Artists</a></li>
-                    <li><a href="{{ url_for('venue_list') }} class="waves-effect waves-light btn-small">Venues</a></li>
-                    <li><a href="{{ url_for('about_us') }} class="waves-effect waves-light btn-small">About Us</a></li>
-                    <li><a href="{{ url_for('contact') }} class="waves-effect waves-light btn-small">Contact</a></li>
+                    <li><a href="{{ url_for('get_artists') }}" class="waves-effect waves-light btn-small">Artists</a></li>
+                    <li><a href="{{ url_for('get_venues') }}" class="waves-effect waves-light btn-small">Venues</a></li>
+                    <li><a href="{{ url_for('contact_us') }}" class="waves-effect waves-light btn-small">Contact</a></li>
+                    <li><a href="{{ url_for('about_us') }}" class="waves-effect waves-light btn-small">About</a></li>
                 </ul>
             </div>
         </nav>

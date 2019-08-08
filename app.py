@@ -15,20 +15,20 @@ mongo = PyMongo(app)
 def gig_listing():
     return render_template('gig_listing.html', gig=mongo.db.gig_listing.find())
     
-@app.route('/artists')
-def artist_list():
-    return render_template('artists.html', artist=mongo.db.artist.find())
+@app.route('/get_artists')
+def get_artists():
+    return render_template('artists.html', artists=mongo.db.artist.find())
     
-@app.route('/venues')
-def venue_list():
-    return render_template('venues.html', venue=mongo.db.venue.find())
+@app.route('/get_venues')
+def get_venues():
+    return render_template('venues.html', venues=mongo.db.venue.find())
     
 @app.route('/about_us')
 def about_us():
     return render_template('about_us')
     
-@app.route('/contact')
-def contact():
+@app.route('/contact_us')
+def contact_us():
     return render_template('contact.html')
     
 if __name__ == '__main__':

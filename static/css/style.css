@@ -5,19 +5,23 @@ div {
 .brand-logo img {
     height: 80px;
     width: 80px;
-    margin: 10px 20px;
-    padding: 10px;
+    margin: 0px 0px;
+    padding: 0px;
 }
 
 .card {
-    max-height: 600px;
-    max-width: 100px;
+    max-height: 500px;
+    max-width: 100%;
 }
 
 .page_header {
     background-image: url("https://cdn12.picryl.com/photo/2016/12/31/silhouette-girl-dance-people-76774f-1024.jpg");
     max-height: 100%;
     max-width: 100%;
+}
+
+.page_header background-image {
+    opacity: 10;
 }
 
 .page_title {

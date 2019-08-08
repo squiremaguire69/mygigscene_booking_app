@@ -2,46 +2,46 @@
 
 {% block heading %}
 <div class="page_title">
-<h1 text-align: center;>Gig Listings</h1>
+<h1 text-align: center;>Music Venues</h1>
 </div>
 {% endblock %}
                     
 {% block filter %}
-<!--<ul>-->
-<!--    <li class="btn small">Town</li><br>-->
-<!--    <li class="btn small">Budget</li><br>-->
-<!--    <li class="btn small">Genre</li><br>-->
-<!--</ul>-->
-<!--{% endblock %}-->
+<ul>
+    <li class="btn small">Town</li><br>
+    <li class="btn small">Budget</li><br>
+    <li class="btn small">Genre</li><br>
+</ul>
+{% endblock %}
                         
-<!--{% block content %}-->
-<!--<h3>Active Venues</h3>-->
-<!--{% for venue in venues %}-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-3">-->
-<!--            <div class="card">-->
-<!--                <div class="card-image">-->
-<!--                    <img src="{{url_for('venue.profile_image') }}">-->
-<!--                    <span class="card-title">{{ venue_name }}</span>-->
-<!--                </div>-->
-<!--                <div class="card-content">-->
-<!--                    <ul>-->
-<!--                        <li>Date:</li>-->
-<!--                        <li>Artist:</li>-->
-<!--                        <li>Venue:</li>-->
-<!--                        <li>Genre:</li>-->
-<!--                        <li>Info:</li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="card-action">-->
-<!--                    <a href="#" class="btn small"> Band Page</a>-->
-<!--                    <a href="#" class="btn small">Venue Page</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--{% endfor %}-->
+{% block content %}
+<h3>Active Venues</h3>
+{% for venue in venues %}
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{venue.profile_image}}">
+                    <span class="card-title">{{ venue_name }}</span>
+                </div>
+                <div class="card-content">
+                    <ul>
+                        <li>Date:</li>
+                        <li>Artist:</li>
+                        <li>Venue:</li>
+                        <li>Genre:</li>
+                        <li>Info:</li>
+                    </ul>
+                </div>
+                <div class="card-action">
+                    <a href="#" class="btn small"> Band Page</a>
+                    <a href="#" class="btn small">Venue Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
     
     
 
-<!--{% endblock %}-->
+{% endblock %}
