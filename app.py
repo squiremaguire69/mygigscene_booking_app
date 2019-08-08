@@ -27,13 +27,27 @@ def add_artist():
     
 @app.route('/insert_artist', methods=['POST'])
 def insert_artist():
-    artists=mongo.db.artist
+    artists = mongo.db.artist
     artists.insert_one(request.form.to_dict())
     return redirect(url_for('get_artists'))
     
 @app.route('/get_venues')
 def get_venues():
     return render_template('venues.html', venues=mongo.db.venue.find())
+
+@app.route('/add_venue')
+def add_venue():
+    return render_template('add_venue.html', 
+    town_name=mongo.db.town_name.find(),
+    price_range=mongo.db.budget.find(),
+    genre=mongo.db.genre.find())
+    
+    
+@app.route('/insert_venue', methods=['POST'])
+def insert_venue():
+    venues = mongo.db.venue
+    venues.insert_one(request.form.to_dict())
+    return redirect(url_for('get_venues'))
     
 @app.route('/about_us')
 def about_us():
