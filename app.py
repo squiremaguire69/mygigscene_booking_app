@@ -19,6 +19,10 @@ def gig_listing():
 def get_artists():
     return render_template('artists.html', artists=mongo.db.artist.find())
     
+@app.route('/add_artist')
+def add_artist():
+    return render_template('add_artist.html')
+    
 @app.route('/get_venues')
 def get_venues():
     return render_template('venues.html', venues=mongo.db.venue.find())

@@ -24,6 +24,14 @@ div {
     opacity: 10;
 }
 
+.header-button {
+    top:50%;
+    margin-left: 50px;
+    height: 50px;
+    width: 100px;
+    border-radius: 50%
+}
+
 .page_title {
     top: 0;
     left: 50%;
