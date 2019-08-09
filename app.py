@@ -15,6 +15,25 @@ mongo = PyMongo(app)
 def gig_listing():
     return render_template('gig_listing.html', gig=mongo.db.gig_listing.find())
     
+@app.route('/add_gig')
+def add_gig():
+    return render_template('add_gig.html',
+    artist_name = mongo.db.artist.find(),
+    venue_name = mongo.db.venue.find())
+    
+@app.route('/insert_gig')
+def insert_gig():
+    gig = mongo.db.gig_listing
+    gig.insert({
+        'venue_name': request.form.get('venue.name'),
+        'town_name': request.form.get('town_name'),
+        'artist_name': request.form.get('artist_name'),
+        'genre_category': request.form.getlist('genre_category'),
+        'gig_date': request.form.get('gig_date'),
+        'gig_time': request.form.get('gig_time'),
+        'gig_info': request.form.get('gig_info')
+    })
+    
 @app.route('/get_artists')
 def get_artists():
     return render_template('artists.html', artists=mongo.db.artist.find())
@@ -28,7 +47,14 @@ def add_artist():
 @app.route('/insert_artist', methods=['POST'])
 def insert_artist():
     artists = mongo.db.artist
-    artists.insert_one(request.form.to_dict())
+    artists.insert_one({
+        'artist_name': request.form.get('artist_name'),
+        'genre_category': request.form.getlist('genre_category'),
+        'budget_range': request.form.get('budget_range'),
+        'profile_description': request.form.get('profile_description'),
+        'profile_image': request.form.get('profile_image'),
+        'active': request.form.get('active')
+     })
     return redirect(url_for('get_artists'))
     
 @app.route('/get_venues')
@@ -46,12 +72,20 @@ def add_venue():
 @app.route('/insert_venue', methods=['POST'])
 def insert_venue():
     venues = mongo.db.venue
-    venues.insert_one(request.form.to_dict())
+    venues.insert({
+        'venue_name': request.form.get('venue_name'),
+        'town_name': request.form.get('town_name'),
+        'profile_description': request.form.get('profile_description'),
+        'genre_category': request.form.getlist('genre_category'),
+        'budget_range': request.form.get('budget_range'),
+        'profile_image': request.form.get('profile_image'),
+        'active': request.form.get('active')
+    } )
     return redirect(url_for('get_venues'))
     
 @app.route('/about_us')
 def about_us():
-    return render_template('about_us')
+    return render_template('about_us.html')
     
 @app.route('/contact_us')
 def contact_us():
