@@ -52,6 +52,15 @@ def add_artist():
     return render_template('add_artist.html', 
     price_range=mongo.db.budget.find(),
     genre=mongo.db.genre.find())
+    
+
+#Form for editing existing Artist profile
+@app.route('/edit_artist/<artist_id>')
+def edit_artist(artist_id):
+    artist_id = mongo.db.artist.find_one({'_id': ObjectId(artist_id)})
+    price_range = mongo.db.budget.find(),
+    genre = mongo.db.genre.find()
+    return render_template('edit_artist.html', artist=artist_id, price_range=price_range, genre=genre)
 
 
 # Function to insert new Artist details into the database    
