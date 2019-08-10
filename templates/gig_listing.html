@@ -17,28 +17,40 @@
 {% endblock %}
                         
 {% block content %}
-<h3>Upcoming Gigs</h3>
-{% for gigs in gig_listing %}
-    <!--<div class="row">-->
-    <!--    <div class="listing_image col-2">-->
-    <!--        <img src="{{'venue.profile_image'}}"></img> <!--venue image-->-->
-    <!--    </div>-->
-    <!--    <div class="listing_info col-4">-->
-    <!--        <p>Date:</p><br>-->
-    <!--        <p>Town:</p><br>-->
-    <!--        <p>Venue:</p>-->
-    <!--    </div>-->
-    <!--    <div class="listing_image col-2">-->
-    <!--        <img src="{{'artist.profile_image' }}"></img> <!--band image-->-->
-    <!--    </div>-->
-    <!--    <div class="listing_info col-4">-->
-    <!--        <p>Band:</p><br>-->
-    <!--        <p>Genre:</p><br>-->
-    <!--        <p>Time:</p>-->
-    <!--    </div>-->
-    <!--</div>-->
-{% endfor %}
+<div class="row">
+    <h3>Check out our Gigs Below</h3>
+</div>
+<div class="row">
     
+        <div class="col-md-1 listing-image">
+            <img src="static/images/mgs-thumbnail.jpg"></img>
+        </div>
+        <div class="col-md-2 listing-info">
+            <ul>
+                <li>Venue:{{'gig_listing.venue_name'}}</li>
+                <li>Date:</li>
+                <li>Town:</li>
+            </ul>
+        </div>
+        <div class="col-md-1 listing-image">
+            <img src="static/images/mgs-thumbnail.jpg"></img>
+        </div>
+        <div class="col-md-2 listing-info">
+            <ul>
+                <li>Artist:</li>
+                <li>Genre:</li>
+                <li>Time:</li>
+            </ul>
+        </div>
+        <div class="col-md-2 listing-info">
+            <p>Additional Info:</p>
+        </div>
     
+</div>
+
 
 {% endblock %}
+
+
+            
+           

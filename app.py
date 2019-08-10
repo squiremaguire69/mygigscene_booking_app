@@ -10,17 +10,22 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
+# Homepage routing
 @app.route('/')
 @app.route('/gig_listing')
 def gig_listing():
-    return render_template('gig_listing.html', gig=mongo.db.gig_listing.find())
-    
+    return render_template('gig_listing.html', 
+                            gig = mongo.db.gig_listing.find(),
+                            venue = mongo.db.venue.find(),
+                            artist = mongo.db.artist.find())
+
+# Form for adding a new gig to the database
 @app.route('/add_gig')
 def add_gig():
-    return render_template('add_gig.html',
-    artist_name = mongo.db.artist.find(),
-    venue_name = mongo.db.venue.find())
+    return render_template('add_gig.html')
     
+
+# Function to insert the details of the new gig into the database   
 @app.route('/insert_gig')
 def insert_gig():
     gig = mongo.db.gig_listing
@@ -33,17 +38,23 @@ def insert_gig():
         'gig_time': request.form.get('gig_time'),
         'gig_info': request.form.get('gig_info')
     })
-    
+
+
+# Routing for Artists page    
 @app.route('/get_artists')
 def get_artists():
     return render_template('artists.html', artists=mongo.db.artist.find())
-    
+
+
+# Form for adding a new Artist    
 @app.route('/add_artist')
 def add_artist():
     return render_template('add_artist.html', 
     price_range=mongo.db.budget.find(),
     genre=mongo.db.genre.find())
-    
+
+
+# Function to insert new Artist details into the database    
 @app.route('/insert_artist', methods=['POST'])
 def insert_artist():
     artists = mongo.db.artist
@@ -56,11 +67,21 @@ def insert_artist():
         'active': request.form.get('active')
      })
     return redirect(url_for('get_artists'))
-    
+
+
+# Routing to show gig listings for selected artist    
+@app.route('/gig_listing_artist')
+def gig_listing_artist():
+    return render_template('gig_listing_artist.html')
+
+
+# Routing to Venues page    
 @app.route('/get_venues')
 def get_venues():
     return render_template('venues.html', venues=mongo.db.venue.find())
 
+
+# Form for adding a new Venue
 @app.route('/add_venue')
 def add_venue():
     return render_template('add_venue.html', 
@@ -68,7 +89,8 @@ def add_venue():
     price_range=mongo.db.budget.find(),
     genre=mongo.db.genre.find())
     
-    
+
+# Function to insert the new Venue details into the database    
 @app.route('/insert_venue', methods=['POST'])
 def insert_venue():
     venues = mongo.db.venue
@@ -82,16 +104,21 @@ def insert_venue():
         'active': request.form.get('active')
     } )
     return redirect(url_for('get_venues'))
-    
+
+
+# Routing for About Us Page    
 @app.route('/about_us')
 def about_us():
     return render_template('about_us.html')
-    
+
+
+# Routing for contact us page    
 @app.route('/contact_us')
 def contact_us():
     return render_template('contact.html')
     
-#Filter Methods
+    
+#Filter Section Functions
 
 @app.route('/select_budget',methods=['POST'])
 def select_budget():

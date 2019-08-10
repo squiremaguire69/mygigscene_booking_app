@@ -33,14 +33,14 @@
 
     <div class="row">
      {% for artist in artists %}   
-            <div class="card col-md-4 mx-2">
+            <div class="card col-md-3 mx-2">
                 <div class="card-image">
                     <img src="{{artist.profile_image}}">
                     <span class="card-title">{{ artist.artist_name }}</span>
                 </div>
                 <div class="card-content">
                     <div>
-                       <a href="#" class="btn-small"><i class="material-icons left">music_note</i>Upcoming Gigs</a>
+                       <a href="{{url_for('gig_listing_artist')}}" class="btn-small"><i class="material-icons left">music_note</i>Upcoming Gigs</a>
                     </div>
                     <ul>
                         <li>Description: {{ artist.profile_description }}</li>

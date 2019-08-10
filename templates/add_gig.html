@@ -1,1 +1,70 @@
 {% extends 'form_base.html' %}
+
+{% block heading %}
+<div class="container">
+<h3>New Gig Booking Form</h3>
+</div>
+{% endblock %}
+{% block form_content %}
+<p>Please complete all fields and submit to add a new gig.</p>
+ <div class="row">
+    <form action="{{ url_for('insert_gig') }}" method="POST" class="col s12">
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="material-icons prefix">portrait</i>
+                  <select id="artist_name" name="artist_name">
+                      <option value="" disabled selected>Select Artist</option>
+                      {% for artists in artist %}
+                      <option value="{{artist.artist_name}}">{{artist.artist_name}}</option>
+                      {% endfor %}
+                  </select>
+              <label>Artist</label>
+          </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+              <i class="material-icons prefix">store</i>
+                  <select id="venue_name" name="venue_name">
+                      <option value="" disabled selected>Select Venue</option>
+                      {% for venues in venue %}
+                      <option value="{{venue.venue_name}}">{{venue.venue_name}}</option>
+                      {% endfor %}
+                  </select>
+              <label>Venue</label>
+          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">event</i>
+          <input placeholder="Right Click on mouse to Select Gig Date" id="gig_date" name="gig_date" type="text" class="datepicker">
+          <label>Date</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+             <i class="material-icons prefix">access_time</i>
+          <input placeholder="Start Time of Gig" id="gig_time" name="gig_time" type="text" class="validate">
+          <label for="venue_name">Start Time (hh:mm)</label>
+        </div>
+      </div>
+      <div class="row">
+          <div class="input-field col s12">
+               <i class="material-icons prefix">comment</i>
+              <textarea placeholder="Enter additional details about this gig." id="gig_info" name="gig_info" type="text" class="materialize_textarea"></textarea>
+              <label>Additional Info</label>
+          </div>
+      </div>
+     
+      </div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit Gig
+            <i class="material-icons right">publish</i>
+        </button>
+      </div>
+      
+    </form>
+  </div>
+
+ 
+{% endblock %}
+
+<script type="text/javascript" src="{{url_for('static', filename='js/myscript.js')}}"></script>>
