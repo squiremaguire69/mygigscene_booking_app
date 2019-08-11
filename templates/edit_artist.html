@@ -35,13 +35,13 @@
          <i class="material-icons prefix">euro_symbol</i>
          <select id="budget_range" name="budget_range">
        <option value="" disabled selected>Choose Price Range</option>
-       {% for range in price_range %}
-           {% if range.price_range == artist.price_range %}
-           <option value="{{range.price_range}}" selected>{{range.price_range}}</option>
-           {% else %}
-           <option value="{{range.price_range}}">{{range.price_range}}</option>
-           {% endif %}
-       {% endfor %}
+       {% for range in the_price %}
+       {% if range.price_range == artist.budget_range %}
+       <option value="{{range.price_range}}" selected>{{range.price_range}}</option>
+       {% else %}
+       <option value="{{range.price_range}}">{{range.price_range}}</option>
+       {% endif %}
+       {% endfor%}
      </select>
          <label>Select Price Range</label>
        </div>
@@ -60,7 +60,11 @@
        <div class="row">
          <div class="switch">
            <label>
+                {% if artist.active %}
+                     <input id="active" name="active" type="checkbox" checked>
+                {% else %}
                      <input id="active" name="active" type="checkbox">
+                {% endif %}
                      <span class="lever"></span>
                      Is Active
                    </label>

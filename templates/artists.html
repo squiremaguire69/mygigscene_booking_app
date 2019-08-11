@@ -2,9 +2,7 @@
 
 {% block heading %}
 <div class="page_title">
-    <a href="{{url_for('add_artist')}}" class="waves-effect waves-light btn">
-        Add New Artist
-    </a>
+   
 <h1>Artist Profiles</h1>
 </div>
 {% endblock %}
@@ -28,6 +26,12 @@
 {% endblock %}
                         
 {% block content %}
+<div>
+ <a href="{{url_for('add_artist')}}" class="waves-effect waves-light btn header-button">
+        Add New Artist
+    </a>
+</div>
+
 <h3>Active Artists</h3>
     
 
@@ -40,21 +44,28 @@
                 </div>
                 <div class="card-content">
                     <div>
-                       <a href="{{url_for('gig_listing_artist')}}" class="btn-small"><i class="material-icons left">music_note</i>Upcoming Gigs</a>
+                        <button>
+                       <a href="{{url_for('gig_listing_artist', artist_id=artist._id)}}" class="btn small"><i class="material-icons left">music_note</i>Upcoming Gigs</a>
+                       </button>
                     </div>
-                    <ul>
-                        <li>Description: {{ artist.profile_description }}</li>
-                        <li>Genre: {{ artist.genre_category }}</li>
-                        <li>Price Range: {{ artist.budget_range }}</li>
+                    <div class="card-content profile_description">
+                        <p>Description: {{ artist.profile_description }}<p>
+                        </div>
+                        <div class="card-content">
+                        <p>Genre: {{ artist.genre_category }}<p>
+                        </div>
+                        <div class="card-content">
+                        <p>Price Range: {{ artist.budget_range }}<p>
+                        </div>
                     </ul>
                 </div>
                 <div class="row">
                     <div class="card-action">
-                    <a href="{{url_for('edit_artist', artist_id=artist._id)}}" class="btn small"> Edit</a>
+                        <a href="{{url_for('edit_artist', artist_id=artist._id)}}" class="btn medium"> Edit</a>
                     </div>
-                    <div>
-                    <a href="#" class="btn small">Delete</a>
-                </div>
+                    <div class="card-action">
+                        <a href="#" class="btn medium">Delete</a>
+                    </div>
                 </div>
             </div>
         

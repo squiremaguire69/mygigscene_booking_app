@@ -57,10 +57,11 @@ def add_artist():
 #Form for editing existing Artist profile
 @app.route('/edit_artist/<artist_id>')
 def edit_artist(artist_id):
-    artist_id = mongo.db.artist.find_one({'_id': ObjectId(artist_id)})
+    artist = mongo.db.artist.find_one({'_id': ObjectId(artist_id)})
     price_range = mongo.db.budget.find(),
     genre = mongo.db.genre.find()
-    return render_template('edit_artist.html', artist=artist_id, price_range=price_range, genre=genre)
+   
+    return render_template('edit_artist.html', artist=artist, range=price_range, genre=genre)
 
 
 # Function to insert new Artist details into the database    
@@ -79,8 +80,12 @@ def insert_artist():
 
 
 # Routing to show gig listings for selected artist    
-@app.route('/gig_listing_artist')
-def gig_listing_artist():
+@app.route('/gig_listing_artist/<artist_id>')
+def gig_listing_artist(artist_id, venue_id):
+    artist = mongo.db.artist.find({'_id': ObjectId(artist_id)}),
+    venue = mongo.db.venue.find({'_id': ObjectId(venue_id)})
+    town = mongo.db.town_name.find(),
+    genre = mongo.db.genre.find()
     return render_template('gig_listing_artist.html')
 
 

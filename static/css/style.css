@@ -2,24 +2,29 @@
 /*    max-height: 500px;*/
 /*    max-width: 100%;*/
 /*}*/
+h1 {
+    text-align: center;
+}
 
 .page_header {
-    background-image: url("https://cdn12.picryl.com/photo/2016/12/31/silhouette-girl-dance-people-76774f-1024.jpg");
-    max-height: 100%;
-    max-width: 100%;
+    background-image: url("http://myeventnation.com/wp-content/uploads/2017/02/xcrowd-at-concert-2-300x169.jpg.pagespeed.ic.CCmJkSqKTy.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    
+}
+
+.page-header h1 {
+    text-align: center;
+    bottom: 5px;
 }
 
 .header-button {
-    top:50%;
-    margin-left: 50px;
-    height: 50px;
-    width: 100px;
     border-radius: 50%
 }
 
 .page_title {
-    top: 0;
-    left: 50%;
+    text-align: center;
 }
 
 .gig_listing-block {
@@ -37,4 +42,11 @@
 .listing-info {
     font-size: 12px;
     border: solid 1px black
+}
+
+/*Display Cards for Artists and Venues*/
+
+.profile_description {
+    height: 150px;
+    overflow: scroll;
 }
